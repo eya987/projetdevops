@@ -22,7 +22,7 @@ pipeline {
     stage("MVN SonarQube") {
       
        		steps {
-        	  sh "mmvn sonar:sonar \
+        	  sh "mvn sonar:sonar \
   -Dsonar.projectKey=sonarqube \
   -Dsonar.host.url=http://192.168.1.140:9000 \
   -Dsonar.login=e1aa46ab5f5d36c15b25dd6909f3c3ada9fe1f2a"
