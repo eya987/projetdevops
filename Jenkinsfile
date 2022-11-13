@@ -22,10 +22,10 @@ pipeline {
     stage("MVN SonarQube") {
       
        		steps {
-        	  sh "mvn sonar:sonar \
-  				-Dsonar.projectKey=socarqube \
-  				-Dsonar.host.url=http://192.168.1.173:9000 \
-  				-Dsonar.login=6e96b26c7adf6d429cc30258cf59c6aa8e33b666"
+        	  sh "mmvn sonar:sonar \
+  -Dsonar.projectKey=sonarqube \
+  -Dsonar.host.url=http://192.168.1.140:9000 \
+  -Dsonar.login=e1aa46ab5f5d36c15b25dd6909f3c3ada9fe1f2a"
       	}
     }
             stage('Test mvn') {
