@@ -4,7 +4,7 @@ pipeline {
     stage('Git Checkout') {
       steps {
         echo 'pulling...';
-         git branch:'eya',
+         git branch:'rihem',
          url : 'https://github.com/eya987/projetdevops';
          }
         }
