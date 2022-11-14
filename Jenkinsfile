@@ -28,6 +28,11 @@ pipeline {
   -Dsonar.login=e1aa46ab5f5d36c15b25dd6909f3c3ada9fe1f2a"
       	}
     }
+        stage('Nexus') {
+      steps {
+        sh 'mvn clean deploy -Dmaven.test.skip=true'
+      }
+    }
             stage('Test mvn') {
             steps {
               sh """ mvn -DskipTests clean package """ 
