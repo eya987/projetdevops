@@ -1,4 +1,9 @@
 pipeline {
+   environment {
+        registry = "eya987/devopsproject"
+        registryCredential = 'dockerHub'
+        dockerImage = ''
+    }
    agent any
    stages {
     stage('Git Checkout') {
@@ -40,6 +45,38 @@ pipeline {
   
             }
         }
-  
+     stage('MVN PACKAGE') {
+            steps {
+                sh 'mvn package -DskipTests'
+            }
+        }
+            stage('Building our image') {
+            steps {
+                script {
+                    dockerImage = docker.build registry +":$BUILD_NUMBER"
+                }
+            }
+        }
+      stage('Deploy our image') {
+            steps {
+                script {
+                    docker.withRegistry( '', registryCredential ) {
+                        dockerImage.push()
+                    }
+                }
+            }
+        }    
+                stage('Cleaning up') {
+            steps {
+                echo "docker rmi $registry:$BUILD_NUMBER "
+                sh "docker rmi $registry:$BUILD_NUMBER "
+        }
+    }
+
+     stage('Start container') {
+             steps {
+                sh 'docker-compose up -d '
+      }
+        }
        }
       }
