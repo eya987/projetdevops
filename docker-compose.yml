@@ -6,7 +6,7 @@ services:
     ports:
         - 4200:4200 #Forwars the exposed port 4200 on the container to port 4200 on the host machine
     depends_on:
-        - mydevops
+        - devopsproject
   mysqldb:
     container_name: mysqldb
     image: mysql
@@ -17,8 +17,8 @@ services:
         - MYSQL_ROOT_PASSWORD=root
 
 
-  mydevops:
-    container_name: devops
+  devopsproject:
+    container_name: mydevops
     image: rihemabess/devopsproject:latest
     restart: on-failure
     ports:

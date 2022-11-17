@@ -29,7 +29,7 @@ pipeline {
        		steps {
         	  sh "mvn sonar:sonar \
   -Dsonar.projectKey=sonarqube \
-  -Dsonar.host.url=http://192.168.0.15:9000 \
+  -Dsonar.host.url=http://192.168.1.212:9000 \
   -Dsonar.login=23a5cbbe6e188026b31e6dc76d09b153ad0a2419"
       	}
     }
