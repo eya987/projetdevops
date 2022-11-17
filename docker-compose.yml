@@ -18,7 +18,7 @@ services:
 
 
   devopsproject:
-    container_name: mydevops
+    container_name: devopsproject
     image: rihemabess/devopsproject:latest
     restart: on-failure
     ports:
