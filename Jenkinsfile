@@ -1,6 +1,6 @@
 pipeline {
    environment {
-        registry = "rihemabbes/devopsproject"
+        registry = "rihemabess/devopsproject"
         registryCredential = 'dockerHub'
         dockerImage = ''
     }
@@ -46,6 +46,13 @@ pipeline {
   
             }
         }
+
+     stage('Docker Login'){
+            steps{
+            echo "login"
+               sh 'docker login -u rihemabess -p "rihemabbes"'
+            }
+     } 
            stage('MVN PACKAGE') {
             steps {
                 sh 'mvn package -DskipTests'
