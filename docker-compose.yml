@@ -2,7 +2,7 @@ version: '2.0'
 services:
   angular-app:
     #The docker file in FE, builds and provides the docker image.
-    image: eya987/angularprojecteya:latest
+    image: eya987/frontenddevopss:latest
     ports:
         - 4200:4200 #Forwars the exposed port 4200 on the container to port 4200 on the host machine
     depends_on:
